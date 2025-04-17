@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Food Expiry Tracker & Recipe Recommender</title>
+    <link rel="stylesheet" href="food-tracker-styles.css">
+</head>
+<body>
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="welcome-page">
+        <div class="welcome-content">
+            <h1>Welcome to Foodie</h1>
+            <p>Your smart food expiry tracker and recipe recommender. Say goodbye to food waste and hello to delicious meals using what you already have.</p>
+            <a href="#login-page" class="btn btn-primary" onclick="showPage('login-page')">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="auth-container" style="display: none;">
+        <div class="auth-form">
+            <h2>Log in to Foodie</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                </div>
+                <button type="button" class="btn btn-primary" style="width: 100%;" onclick="showPage('home-page')">Log in</button>
+            </form>
+            <div class="auth-links">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p><a href="#">Forgot password?</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page / Kitchen -->
+    <div id="home-page" style="display: none;">
+        <header>
+            <a href="#" class="logo">
+                <span class="diamond">◆</span> Foodie
+            </a>
+            <nav>
+                <a href="#">Recipes</a>
+                <a href="#">Explore</a>
+                <a href="#">Groceries</a>
+                <a href="#">Delivery</a>
+                <a href="#">Cookware</a>
+            </nav>
+            <div class="icons">
+                <a href="#"><i>🔍</i></a>
+                <a href="#"><i>🔔</i></a>
+                <a href="#"><i>👤</i></a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="dashboard">
+                <div class="sidebar">
+                    <div class="page-title">
+                        <h1>Your Kitchen</h1>
+                        <a href="#" onclick="showModal('edit-item-modal')">
+                            <i>➕</i>
+                        </a>
+                    </div>
+                    <div class="inventory-status">
+                        <p>5 items, 3 expiring soon</p>
+                    </div>
+                    <div class="food-items-list">
+                        <div class="food-item">
+                            <div class="food-item-image">
+                                <img src="Organic Apples.webp" alt="Organic apples">
+                            </div>
+                            <div class="food-item-info">
+                                <div class="food-item-title">Organic apples</div>
+                                <div class="food-item-expiry">Expires on 10/31/22</div>
+                            </div>
+                            <div class="food-item-actions">
+                                <a href="#" onclick="showModal('edit-item-modal')">•••</a>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-item-image">
+                                <img src="Organic Apples.webp" alt="Organic apples">
+                            </div>
+                            <div class="food-item-info">
+                                <div class="food-item-title">Organic apples</div>
+                                <div class="food-item-expiry">Expires on 10/30/22</div>
+                            </div>
+                            <div class="food-item-actions">
+                                <a href="#" onclick="showModal('edit-item-modal')">•••</a>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-item-image">
+                                <img src="Organic Apples.webp" alt="Organic apples">
+                            </div>
+                            <div class="food-item-info">
+                                <div class="food-item-title">Organic apples</div>
+                                <div class="food-item-expiry">Expires on 10/31/22</div>
+                            </div>
+                            <div class="food-item-actions">
+                                <a href="#" onclick="showModal('edit-item-modal')">•••</a>
+                            </div>
+                        </div>
+                        <button class="add-item-btn" onclick="showModal('edit-item-modal')">+ Add Item</button>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="calendar">
+                        <div class="month-nav">
+                            <a href="#"><i>◀</i></a>
+                            <div class="month-title">November 2022</div>
+                            <a href="#"><i>▶</i></a>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-header">S</div>
+                            <div class="calendar-header">M</div>
+                            <div class="calendar-header">T</div>
+                            <div class="calendar-header">W</div>
+                            <div class="calendar-header">T</div>
+                            <div class="calendar-header">F</div>
+                            <div class="calendar-header">S</div>
+
+                            <!-- Week 1 -->
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day current-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+
+                            <!-- Week 2 -->
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+
+                            <!-- Week 3 -->
+                            <div class="calendar-day">15</div>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-day">21</div>
+
+                            <!-- Week 4 -->
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+
+                            <!-- Week 5 -->
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                        </div>
+
+                        <div class="month-nav" style="margin-top: 30px;">
+                            <a href="#"><i>◀</i></a>
+                            <div class="month-title">December 2022</div>
+                            <a href="#"><i>▶</i></a>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-header">S</div>
+                            <div class="calendar-header">M</div>
+                            <div class="calendar-header">T</div>
+                            <div class="calendar-header">W</div>
+                            <div class="calendar-header">T</div>
+                            <div class="calendar-header">F</div>
+                            <div class="calendar-header">S</div>
+
+                            <!-- Week 1 -->
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+
+                            <!-- Week 2 -->
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+
+                            <!-- Week 3 -->
+                            <div class="calendar-day">15</div>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-day">21</div>
+
+                            <!-- Week 4 -->
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+
+                            <!-- Week 5 -->
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                        </div>
+                    </div>
+
+                    <div class="recipe-section">
+                        <h2>Recipes for you</h2>
+                        <div class="recipe-cards">
+                            <div class="recipe-card" onclick="showPage('recipe-detail-page')">
+                                <div class="recipe-image">
+                                    <img src="Vegan Apple Pie.jpg" alt="Vegan Apple Pie">
+                                </div>
+                                <div class="recipe-info">
+                                    <div class="recipe-title">Vegan Apple Pie</div>
+                                    <div class="recipe-meta">30 min | 6 servings</div>
+                                    <div class="recipe-author">Recipe by FreshBite</div>
+                                </div>
+                                <div class="recipe-actions">
+                                    <a href="#" onclick="showPage('recipe-detail-page')">•••</a>
+                                </div>
+                            </div>
+                            <div class="recipe-card" onclick="showPage('recipe-detail-page')">
+                                <div class="recipe-image">
+                                    <img src="Vegan Apple Pie.jpg" alt="Vegan Apple Pie">
+                                </div>
+                                <div class="recipe-info">
+                                    <div class="recipe-title">Vegan Apple Pie</div>
+                                    <div class="recipe-meta">45 min | 6 servings</div>
+                                    <div class="recipe-author">Recipe by FreshBite</div>
+                                </div>
+                                <div class="recipe-actions">
+                                    <a href="#" onclick="showPage('recipe-detail-page')">•••</a>
+                                </div>
+                            </div>
+                            <div class="recipe-card" onclick="showPage('recipe-detail-page')">
+                                <div class="recipe-image">
+                                    <img src="Vegan Apple Pie.jpg" alt="Vegan Apple Pie">
+                                </div>
+                                <div class="recipe-info">
+                                    <div class="recipe-title">Vegan Apple Pie</div>
+                                    <div class="recipe-meta">30 min | 6 servings</div>
+                                    <div class="recipe-author">Recipe by FreshBite</div>
+                                </div>
+                                <div class="recipe-actions">
+                                    <a href="#" onclick="showPage('recipe-detail-page')">•••</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Detail Page -->
+    <div id="recipe-detail-page" style="display: none;">
+        <header>
+            <a href="#" class="logo">
+                <span class="diamond">◆</span> Foodie
+            </a>
+            <nav>
+                <a href="#">Recipes</a>
+                <a href="#">Explore</a>
+                <a href="#">Groceries</a>
+                <a href="#">Delivery</a>
+                <a href="#">Cookware</a>
+            </nav>
+            <div class="icons">
+                <a href="#"><i>🔍</i></a>
+                <a href="#"><i>🔔</i></a>
+                <a href="#"><i>👤</i></a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="recipe-detail">
+                <div class="recipe-header">
+                    <div class="recipe-hero-image">
+                        <img src="Soup.jpeg" alt="Creamy Chicken and Rice Soup">
+                    </div>
+                    <div class="recipe-header-info">
+                        <h1>Creamy Chicken and Rice Soup</h1>
+                        <p class="recipe-description">
+                            This soup is a comforting, hearty meal that is perfect for warming up on a cold winter day. It's made with tender chicken, creamy rice, and a rich, flavorful broth. Serve it with some crusty bread for a complete meal. This recipe is easy to make and can be made in under 30 minutes.
+                        </p>
+                        <button class="btn btn-primary recipe-add-btn">Add to calendar</button>
+                    </div>
+                </div>
+
+                <div class="recipe-ingredients">
+                    <h2>Ingredients</h2>
+                    <div class="ingredient-list">
+                        <div class="ingredient-item">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>2 cups cooked chicken, shredded or chopped</span>
+                        </div>
+                        <!-- More ingredients would be listed here -->
+                    </div>
+                </div>
+
+                <div class="recipe-instructions">
+                    <h2>Instructions</h2>
+                    <div class="instruction-list">
+                        <div class="instruction-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                In a large pot, melt the butter over medium heat. Add the onion, carrots, and celery, and cook for 5-7 minutes, until the vegetables are soft.
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                Add the garlic and cook for an additional 2 minutes.
+                            </div>
+                        </div>
+                        <div class="instruction-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                Stir in the flour and cook for 1-2 minutes, until the mixture is golden.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div id="edit-item-modal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">Edit item</h3>
+            <form id="edit-item-form">
+                <div class="modal-form-group">
+                    <label for="item-name">Name</label>
+                    <input type="text" id="item-name" class="form-control">
+                </div>
+                <div class="modal-form-group">
+                    <label for="expiry-date">Expiry date</label>
+                    <input type="date" id="expiry-date" class="form-control">
+                </div>
+                <div class="modal-form-group">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" class="form-control">
+                </div>
+                <div class="modal-form-group">
+                    <div class="quantity-units">
+                        <div>
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" class="form-control">
+                        </div>
+                        <div>
+                            <label for="units">Units</label>
+                            <input type="text" id="units" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-primary modal-btn" onclick="closeModal('edit-item-modal')">Save changes</button>
+                    <button type="button" class="btn btn-secondary modal-btn" onclick="closeModal('edit-item-modal')">Remove item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="foodie-javascript.js"></script>
+</body>
+</html>
